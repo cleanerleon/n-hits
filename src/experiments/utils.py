@@ -469,10 +469,10 @@ def model_fit_predict(mc, S_df, Y_df, X_df, f_cols, evaluate_train, ds_in_val, d
     trainer = pl.Trainer(max_epochs=mc['max_epochs'],
                          max_steps=mc['max_steps'],
                          check_val_every_n_epoch=mc['eval_freq'],
-                         progress_bar_refresh_rate=1,
+                         enable_progress_bar=1,
                          gpus=gpus,
                          callbacks=callbacks,
-                         checkpoint_callback=False,
+                         # checkpoint_callback=False,
                          logger=False)
     trainer.fit(model, train_loader, val_loader)
 
